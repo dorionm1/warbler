@@ -1,0 +1,30 @@
+{% extends 'base.html' %} {% block content %}
+<body>
+  <div id="edit_user_page">
+    <h1>Edit User</h1>
+    <form
+      method="POST"
+      action="/submit/users/{{user.id}}/edit"
+      id="edit_user_form"
+    >
+      {{ form.hidden_tag() }}
+      <div>
+        {{ form.username.label }} {{ form.username(size=20, value=user.username)
+        }}
+      </div>
+      <div>{{ form.email.label }} {{ form.email(value=user.email) }}</div>
+      <div>
+        {{ form.image_url.label }} {{ form.image_url(value=user.image_url) }}
+      </div>
+      <div>
+        {{ form.header_image_url.label }} {{
+        form.header_image_url(value=user.header_image_url)}}
+      </div>
+      <div>{{ form.bio.label }} {{ form.bio(value=user.bio)}}</div>
+      <div>
+        <input type="submit" value="Submit" />
+      </div>
+    </form>
+  </div>
+</body>
+{% endblock %}
